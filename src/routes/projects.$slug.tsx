@@ -70,9 +70,11 @@ export const Route = createFileRoute("/projects/$slug")({
 });
 
 function ProjectDetail() {
-  const p = Route.useLoaderData();
+  const { slug } = Route.useParams();
+  const p = projects.find((x) => x.slug === slug)!;
   const { t, i18n } = useTranslation();
   const isAr = i18n.language?.startsWith("ar");
+
 
   return (
     <article className="relative">
