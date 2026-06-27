@@ -145,7 +145,7 @@ export const education = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   {
     slug: "github-bot",
     title: "GitHub Management Telegram Bot",
