@@ -4,6 +4,10 @@
 import giitHero from "@/assets/giit-hero.jpeg";
 import giitFeatures from "@/assets/giit-features.webp";
 import giitCommands from "@/assets/giit-commands.webp";
+import portfolioHome from "@/assets/portfolio-home.jpg";
+import portfolioAbout from "@/assets/portfolio-about.jpg";
+import portfolioCase from "@/assets/portfolio-case.jpg";
+import portfolioContact from "@/assets/portfolio-contact.jpg";
 
 export type Project = {
   slug: string;
