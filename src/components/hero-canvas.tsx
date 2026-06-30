@@ -40,7 +40,6 @@ export default function HeroCanvas() {
       gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       camera={{ position: [0, 0, 4.5], fov: 38 }}
     >
-      <color attach="background" args={["#00000000"]} />
       <ambientLight intensity={0.5} />
       <directionalLight position={[3, 4, 5]} intensity={1.2} color="#7d6cff" />
       <directionalLight position={[-4, -2, 3]} intensity={0.8} color="#5fc8e8" />
