@@ -4,6 +4,10 @@
 import giitHero from "@/assets/giit-hero.jpeg";
 import giitFeatures from "@/assets/giit-features.webp";
 import giitCommands from "@/assets/giit-commands.webp";
+import portfolioHome from "@/assets/portfolio-home.jpg";
+import portfolioAbout from "@/assets/portfolio-about.jpg";
+import portfolioCase from "@/assets/portfolio-case.jpg";
+import portfolioContact from "@/assets/portfolio-contact.jpg";
 
 export type Project = {
   slug: string;
@@ -15,7 +19,7 @@ export type Project = {
   role: string;
   roleAr: string;
   live: string;
-  repos: { label: string; url: string }[];
+  repos?: { label: string; url: string }[];
   cover: string;
   gallery: { src: string; caption: string }[];
   stack: Record<string, string[]>;
@@ -208,6 +212,66 @@ export const projects: Project[] = [
       { c: "/help", k: "Basic", d: "Show the help message with all commands." },
       { c: "/cancel", k: "Basic", d: "Cancel the current operation." },
     ],
+  },
+  {
+    slug: "portfolio",
+    title: "This Portfolio — Cinematic Frontend",
+    titleAr: "هذا الموقع — واجهة سينمائية",
+    tagline:
+      "An Apple-grade personal site: glassmorphism, WebGL hero, full AR / EN with RTL, AMOLED dark mode.",
+    taglineAr:
+      "موقع شخصي بمستوى Apple: زجاجية كاملة، واجهة WebGL ثلاثية الأبعاد، دعم كامل للعربية والإنجليزية، وضع داكن AMOLED.",
+    year: "2026",
+    role: "Designer + Engineer + Author",
+    roleAr: "مصمم + مهندس + كاتب",
+    live: "/",
+    cover: portfolioHome,
+    gallery: [
+      { src: portfolioHome, caption: "Home — cinematic hero with a live WebGL glass torus." },
+      { src: portfolioAbout, caption: "About — bilingual bio, education timeline, technical skills." },
+      { src: portfolioCase, caption: "Case study — dynamic project routing with full architecture breakdown." },
+      { src: portfolioContact, caption: "Contact — validated form, direct lines, footer sitemap." },
+    ],
+    stack: {
+      Frontend: [
+        "TanStack Start",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "shadcn/ui",
+      ],
+      Motion: ["Framer Motion", "GSAP", "Lenis"],
+      "3D": ["React Three Fiber", "@react-three/drei", "Three.js"],
+      "i18n & A11y": ["i18next", "RTL layout", "Semantic tokens"],
+      DevOps: ["Vercel", "Vercel Analytics", "Vite 7"],
+    },
+    overview:
+      "A bilingual, design-led portfolio engineered to compete with the top global studios. Every section is a deliberate choice: a 2-second monogram intro, a WebGL hero rendered with a transmission material, a glass design system tuned for AMOLED screens, and a hidden Developer Mode drawer that opens up the architecture. The site is the medium and the message — every interaction here is what I'd ship for a client.",
+    overviewAr:
+      "موقع بورتفوليو ثنائي اللغة، صُمم وهُندس لينافس أرقى الاستوديوهات العالمية. كل قسم هنا قرار مقصود: مقدمة سينمائية لمدة ثانيتين، خلفية ثلاثية الأبعاد بمواد شفافة (Transmission)، نظام تصميم زجاجي مُحسَّن لشاشات AMOLED، ودرج «وضع المطور» المخفي يكشف البنية التحتية. الموقع هو الرسالة، وكل تفاعل فيه هو نفس ما أُسلِّمه لأي عميل.",
+    features: [
+      { t: "Cinematic Intro", d: "Two-second SVG monogram draw with a session gate so returning visitors skip it." },
+      { t: "WebGL Hero", d: "Lazy-loaded React Three Fiber canvas with a transmission-material glass torus knot." },
+      { t: "Full Glassmorphism", d: "Layered glass surfaces, design-token-driven, tuned for AMOLED black." },
+      { t: "AR / EN with RTL", d: "i18next-powered language toggle, full RTL flip, localized display typography." },
+      { t: "AMOLED Dark Mode", d: "True-black background, semantic contrast tokens, system-preference default." },
+      { t: "Smooth Scroll", d: "Lenis-driven scroll engine with section reveals and parallax accents." },
+      { t: "Dynamic Case Studies", d: "File-based routing renders any project from a single data source — no per-page work." },
+      { t: "Magnetic Interactions", d: "Hover-magnetic buttons, text-morph hover, motion choreographed with Framer Motion." },
+      { t: "Bilingual WhatsApp CTA", d: "Floating WhatsApp button with an auto-generated AR/EN message." },
+      { t: "Developer Mode", d: "Hidden drawer that exposes the architecture, stack, and libraries powering the site." },
+      { t: "SEO-Ready", d: "Per-route meta + OG, JSON-LD on case studies, sitemap.xml and robots.txt." },
+      { t: "Validated Contact", d: "Zod-validated form with mailto fallback for reliable delivery." },
+    ],
+    architecture: [
+      { t: "File-based Routing", d: "TanStack Start routes under src/routes with type-safe params and per-route head() metadata." },
+      { t: "Design Tokens", d: "Tailwind v4 @theme variables in src/styles.css drive every color, radius, and glass surface." },
+      { t: "Single Data Source", d: "src/lib/data.ts is the only place project, profile, and skill content lives — no duplication." },
+      { t: "Lazy WebGL", d: "The R3F canvas is code-split and mounted only on the hero, keeping initial bundles small." },
+      { t: "Locale Resources", d: "src/locales/en.json and ar.json keyed identically, switched at runtime with full RTL flip." },
+    ],
+    security: [],
+    commands: [],
   },
 ];
 

@@ -41,15 +41,20 @@ export function DevModeButton() {
 
   return (
     <>
-      <button
+      <motion.button
         type="button"
         onClick={() => setOpen(true)}
         aria-label="View developer mode"
-        className="fixed bottom-5 z-40 grid size-10 place-items-center rounded-full glass-subtle hover:bg-[var(--glass-3)] safe-bottom"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.94 }}
+        className="fixed bottom-5 z-40 grid size-12 place-items-center rounded-full glass-strong shadow-2xl safe-bottom focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)]"
         style={{ insetInlineStart: "1rem" }}
       >
-        <Code2 className="size-4 opacity-80" />
-      </button>
+        <Code2 className="size-[18px] opacity-90" strokeWidth={1.75} />
+      </motion.button>
 
       <AnimatePresence>
         {open && (

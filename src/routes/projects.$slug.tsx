@@ -80,7 +80,7 @@ function ProjectDetail() {
     <article className="relative">
       <div aria-hidden className="aurora" />
 
-      <section className="relative z-[1] px-4 pt-36 pb-12 sm:pt-44">
+      <section className="relative z-[1] px-4 pt-32 pb-8 sm:pt-40">
         <div className="mx-auto max-w-6xl">
           <Link
             to="/projects"
@@ -108,7 +108,7 @@ function ProjectDetail() {
               >
                 {t("projects.live")} <ExternalLink className="size-4" />
               </a>
-              {p.repos.map((r) => (
+              {p.repos?.map((r) => (
                 <a
                   key={r.url}
                   href={r.url}
@@ -124,7 +124,7 @@ function ProjectDetail() {
         </div>
       </section>
 
-      <section className="relative z-[1] px-4 pb-12">
+      <section className="relative z-[1] px-4 pb-8">
         <div className="mx-auto max-w-6xl">
           <SectionReveal delay={0.05}>
             <GlassCard className="overflow-hidden">
@@ -140,7 +140,7 @@ function ProjectDetail() {
         </div>
       </section>
 
-      <section className="relative z-[1] px-4 py-12">
+      <section className="relative z-[1] px-4 py-8 sm:py-10">
         <div className="mx-auto max-w-6xl grid gap-6 lg:grid-cols-[1.4fr_1fr]">
           <SectionReveal>
             <GlassCard className="p-8 sm:p-10">
@@ -177,7 +177,7 @@ function ProjectDetail() {
         </div>
       </section>
 
-      <section className="relative z-[1] px-4 py-12">
+      <section className="relative z-[1] px-4 py-8 sm:py-10">
         <div className="mx-auto max-w-6xl">
           <SectionReveal>
             <h2 className="font-display text-3xl tracking-tight">{t("projects.features")}</h2>
@@ -195,67 +195,77 @@ function ProjectDetail() {
         </div>
       </section>
 
-      <section className="relative z-[1] px-4 py-12">
-        <div className="mx-auto max-w-6xl grid gap-6 lg:grid-cols-2">
-          <SectionReveal>
-            <GlassCard className="h-full p-8 sm:p-10">
-              <h2 className="font-display text-2xl tracking-tight">
-                {t("projects.architecture")}
-              </h2>
-              <ul className="mt-6 space-y-4">
-                {p.architecture.map((a, i) => (
-                  <li key={a.t} className="grid grid-cols-[auto_1fr] items-baseline gap-3">
-                    <span className="font-mono text-xs text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                    <div>
-                      <div className="font-medium">{a.t}</div>
-                      <p className="mt-1 text-sm text-muted-foreground">{a.d}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </GlassCard>
-          </SectionReveal>
-          <SectionReveal delay={0.06}>
-            <GlassCard className="h-full p-8 sm:p-10">
-              <h2 className="font-display text-2xl tracking-tight">{t("projects.security")}</h2>
-              <ul className="mt-6 space-y-3 text-sm text-foreground/85">
-                {p.security.map((s) => (
-                  <li key={s} className="border-l-2 border-[var(--glass-border)] ps-4">
-                    {s}
-                  </li>
-                ))}
-              </ul>
-            </GlassCard>
-          </SectionReveal>
-        </div>
-      </section>
-
-      <section className="relative z-[1] px-4 py-12">
-        <div className="mx-auto max-w-6xl">
-          <SectionReveal>
-            <h2 className="font-display text-3xl tracking-tight">{t("projects.commands")}</h2>
-          </SectionReveal>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {p.commands.map((c, i) => (
-              <SectionReveal key={c.c} delay={i * 0.02}>
-                <GlassCard className="p-5">
-                  <div className="flex items-center justify-between">
-                    <code className="font-mono text-sm text-foreground">{c.c}</code>
-                    <span className="rounded-full glass-subtle px-2.5 py-0.5 text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                      {c.k}
-                    </span>
-                  </div>
-                  <p className="mt-3 text-sm text-muted-foreground">{c.d}</p>
+      {(p.architecture.length > 0 || p.security.length > 0) && (
+        <section className="relative z-[1] px-4 py-8 sm:py-10">
+          <div className="mx-auto max-w-6xl grid gap-6 lg:grid-cols-2">
+            {p.architecture.length > 0 && (
+              <SectionReveal>
+                <GlassCard className="h-full p-8 sm:p-10">
+                  <h2 className="font-display text-2xl tracking-tight">
+                    {t("projects.architecture")}
+                  </h2>
+                  <ul className="mt-6 space-y-4">
+                    {p.architecture.map((a, i) => (
+                      <li key={a.t} className="grid grid-cols-[auto_1fr] items-baseline gap-3">
+                        <span className="font-mono text-xs text-muted-foreground">
+                          0{i + 1}
+                        </span>
+                        <div>
+                          <div className="font-medium">{a.t}</div>
+                          <p className="mt-1 text-sm text-muted-foreground">{a.d}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </GlassCard>
               </SectionReveal>
-            ))}
+            )}
+            {p.security.length > 0 && (
+              <SectionReveal delay={0.06}>
+                <GlassCard className="h-full p-8 sm:p-10">
+                  <h2 className="font-display text-2xl tracking-tight">
+                    {t("projects.security")}
+                  </h2>
+                  <ul className="mt-6 space-y-3 text-sm text-foreground/85">
+                    {p.security.map((s) => (
+                      <li key={s} className="border-l-2 border-[var(--glass-border)] ps-4">
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </GlassCard>
+              </SectionReveal>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="relative z-[1] px-4 py-12 pb-24">
+      {p.commands.length > 0 && (
+        <section className="relative z-[1] px-4 py-8 sm:py-10">
+          <div className="mx-auto max-w-6xl">
+            <SectionReveal>
+              <h2 className="font-display text-3xl tracking-tight">{t("projects.commands")}</h2>
+            </SectionReveal>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {p.commands.map((c, i) => (
+                <SectionReveal key={c.c} delay={i * 0.02}>
+                  <GlassCard className="p-5">
+                    <div className="flex items-center justify-between">
+                      <code className="font-mono text-sm text-foreground">{c.c}</code>
+                      <span className="rounded-full glass-subtle px-2.5 py-0.5 text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                        {c.k}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm text-muted-foreground">{c.d}</p>
+                  </GlassCard>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="relative z-[1] px-4 py-10 pb-20">
         <div className="mx-auto max-w-6xl">
           <SectionReveal>
             <h2 className="font-display text-3xl tracking-tight">{t("projects.gallery")}</h2>

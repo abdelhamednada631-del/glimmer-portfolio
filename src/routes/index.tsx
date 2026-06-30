@@ -41,7 +41,7 @@ function HomePage() {
       <Hero />
 
       {/* About */}
-      <section id="about" className="relative px-4 py-28 sm:py-36">
+      <section id="about" className="relative px-4 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl">
           <SectionReveal>
             <SectionHeader kicker={t("about.kicker")} title={t("about.title")} />
@@ -98,7 +98,7 @@ function HomePage() {
       </section>
 
       {/* Skills */}
-      <section className="relative px-4 py-28 sm:py-36">
+      <section className="relative px-4 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl">
           <SectionReveal>
             <SectionHeader kicker={t("skills.kicker")} title={t("skills.title")} />
@@ -129,7 +129,7 @@ function HomePage() {
       </section>
 
       {/* Featured project */}
-      <section className="relative px-4 py-28 sm:py-36">
+      <section className="relative px-4 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl">
           <SectionReveal>
             <SectionHeader kicker={t("projects.kicker")} title={t("projects.title")} />
@@ -150,7 +150,7 @@ function HomePage() {
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-2">
-                    {[...featured.stack.Bot, ...featured.stack.Website].slice(0, 6).map((s) => (
+                    {Object.values(featured.stack).flat().slice(0, 6).map((s) => (
                       <span
                         key={s}
                         className="rounded-full glass-subtle px-3 py-1 text-[11px] text-foreground/85"
@@ -176,14 +176,16 @@ function HomePage() {
                     >
                       {t("projects.live")} <ExternalLink className="size-4" />
                     </a>
-                    <a
-                      href={featured.repos[0].url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-                    >
-                      <Github className="size-4" /> {t("projects.code")}
-                    </a>
+                    {featured.repos?.[0] && (
+                      <a
+                        href={featured.repos[0].url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                      >
+                        <Github className="size-4" /> {t("projects.code")}
+                      </a>
+                    )}
                   </div>
                 </div>
 
@@ -204,7 +206,7 @@ function HomePage() {
       </section>
 
       {/* Process */}
-      <section className="relative px-4 py-28 sm:py-36">
+      <section className="relative px-4 py-12 sm:py-16">
         <div className="mx-auto max-w-6xl">
           <SectionReveal>
             <SectionHeader kicker={t("process.kicker")} title={t("process.title")} />
@@ -224,7 +226,7 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="relative px-4 py-28">
+      <section className="relative px-4 py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
           <SectionReveal>
             <GlassCard className="p-10 sm:p-14 text-center" glow>

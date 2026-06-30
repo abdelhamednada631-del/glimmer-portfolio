@@ -33,7 +33,7 @@ function ProjectsIndex() {
   return (
     <div className="relative">
       <div aria-hidden className="aurora" />
-      <section className="relative z-[1] px-4 pt-36 pb-24 sm:pt-44">
+      <section className="relative z-[1] px-4 pt-32 pb-16 sm:pt-40">
         <div className="mx-auto max-w-6xl">
           <SectionReveal>
             <SectionHeader kicker={t("projects.kicker")} title={t("projects.title")} />
@@ -70,7 +70,7 @@ function ProjectsIndex() {
                           {isAr ? p.taglineAr : p.tagline}
                         </p>
                         <div className="mt-6 flex flex-wrap gap-2">
-                          {[...p.stack.Website, ...p.stack.Bot].slice(0, 6).map((s) => (
+                          {Object.values(p.stack).flat().slice(0, 6).map((s) => (
                             <span
                               key={s}
                               className="rounded-full glass-subtle px-3 py-1 text-[11px] text-foreground/85"
