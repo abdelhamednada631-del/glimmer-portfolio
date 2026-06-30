@@ -176,14 +176,16 @@ function HomePage() {
                     >
                       {t("projects.live")} <ExternalLink className="size-4" />
                     </a>
-                    <a
-                      href={featured.repos[0].url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-                    >
-                      <Github className="size-4" /> {t("projects.code")}
-                    </a>
+                    {featured.repos?.[0] && (
+                      <a
+                        href={featured.repos[0].url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                      >
+                        <Github className="size-4" /> {t("projects.code")}
+                      </a>
+                    )}
                   </div>
                 </div>
 
