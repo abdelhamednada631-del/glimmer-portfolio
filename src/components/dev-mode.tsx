@@ -70,7 +70,7 @@ export function DevModeButton() {
               exit={{ y: 60, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="m-3 w-full max-w-md rounded-3xl glass-strong p-6 sm:m-6"
+              className="mx-auto mb-3 w-[calc(100%-1.5rem)] max-w-md max-h-[85dvh] overflow-y-auto overscroll-contain rounded-3xl glass-strong p-6 sm:mb-6"
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
