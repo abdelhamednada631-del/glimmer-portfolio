@@ -259,10 +259,21 @@
   opacity: 0.7;
   pointer-events: none;
   z-index: 0;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  contain: paint;
 }
 
 .light .aurora {
   opacity: 0.45;
+}
+
+/* Pause heavy background animations when the tab isn't visible */
+html:not(:focus-within) .animate-gradient,
+html:not(:focus-within) .animate-pulse-soft,
+html:not(:focus-within) .animate-float,
+html:not(:focus-within) .animate-spin-slow {
+  animation-play-state: paused;
 }
 
 /* Noise overlay */

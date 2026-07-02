@@ -190,10 +190,11 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
-      <WhatsAppFab />
-      <DevModeButton />
-      <Analytics />
-      <SpeedInsights />
+      <FabStack />
+      <ReactSuspense fallback={null}>
+        <Analytics />
+        <SpeedInsights />
+      </ReactSuspense>
     </QueryClientProvider>
   );
 }
