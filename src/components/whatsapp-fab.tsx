@@ -8,7 +8,7 @@ export function WhatsAppFab() {
       {/* Outer halo — sits OUTSIDE the glass disk so it doesn't wash the icon */}
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 rounded-full blur-xl opacity-70 animate-pulse-soft"
+        className="pointer-events-none absolute inset-0 -z-10 rounded-full blur-lg opacity-60 animate-pulse-soft"
         style={{
           background:
             "radial-gradient(60% 60% at 50% 50%, rgba(37,211,102,0.55), transparent 70%)",
