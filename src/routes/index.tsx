@@ -115,7 +115,7 @@ function HomePage() {
                     {g.items.map((s) => (
                       <li
                         key={s}
-                        className="rounded-full glass-subtle px-3 py-1 text-[12px] text-foreground/85"
+                        className="rounded-full glass-subtle px-3 py-1 text-[12px] text-foreground/85 transition-colors hover:text-foreground hover:bg-[var(--glass-3)] motion-reduce:transition-none"
                       >
                         {s}
                       </li>
@@ -153,7 +153,7 @@ function HomePage() {
                     {Object.values(featured.stack).flat().slice(0, 6).map((s) => (
                       <span
                         key={s}
-                        className="rounded-full glass-subtle px-3 py-1 text-[11px] text-foreground/85"
+                        className="rounded-full glass-subtle px-3 py-1 text-[11px] text-foreground/85 transition-colors hover:bg-[var(--glass-3)] motion-reduce:transition-none"
                       >
                         {s}
                       </span>
@@ -164,15 +164,16 @@ function HomePage() {
                     <Link
                       to="/projects/$slug"
                       params={{ slug: featured.slug }}
-                      className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
+                      className="group inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
                     >
-                      {t("projects.view_case")} <ArrowUpRight className="size-4" />
+                      {t("projects.view_case")}{" "}
+                      <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:group-hover:-translate-x-0.5 motion-reduce:transition-none" />
                     </Link>
                     <a
                       href={featured.live}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full glass-subtle px-5 py-3 text-sm hover:bg-[var(--glass-3)]"
+                      className="inline-flex items-center gap-2 rounded-full glass-subtle px-5 py-3 text-sm transition hover:bg-[var(--glass-3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
                     >
                       {t("projects.live")} <ExternalLink className="size-4" />
                     </a>
@@ -181,7 +182,7 @@ function HomePage() {
                         href={featured.repos[0].url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                        className="inline-flex items-center gap-2 rounded-md px-1 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
                       >
                         <Github className="size-4" /> {t("projects.code")}
                       </a>
@@ -189,11 +190,11 @@ function HomePage() {
                   </div>
                 </div>
 
-                <div className="relative min-h-72 overflow-hidden border-t border-[var(--glass-border)] lg:border-t-0 lg:border-s">
+                <div className="group relative min-h-72 overflow-hidden border-t border-[var(--glass-border)] lg:border-t-0 lg:border-s">
                   <img
                     src={featured.cover}
                     alt={featured.title}
-                    className="absolute inset-0 size-full object-cover"
+                    className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     loading="lazy"
                     decoding="async"
                   />
@@ -214,7 +215,7 @@ function HomePage() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((p, i) => (
               <SectionReveal key={p.t} delay={i * 0.06}>
-                <GlassCard className="h-full p-6">
+                <GlassCard className="h-full p-6 transition-colors duration-300 hover:bg-[var(--glass-3)] motion-reduce:transition-none">
                   <div className="font-mono text-xs text-muted-foreground">0{i + 1}</div>
                   <div className="mt-3 font-display text-2xl tracking-tight">{p.t}</div>
                   <p className="mt-2 text-sm text-muted-foreground">{p.d}</p>
@@ -241,9 +242,10 @@ function HomePage() {
               <div className="mt-8">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
+                  className="group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
                 >
-                  {t("nav.cta")} <ArrowUpRight className="size-4" />
+                  {t("nav.cta")}{" "}
+                  <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:group-hover:-translate-x-0.5 motion-reduce:transition-none" />
                 </Link>
               </div>
             </GlassCard>

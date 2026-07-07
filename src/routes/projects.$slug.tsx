@@ -84,7 +84,7 @@ function ProjectDetail() {
         <div className="mx-auto max-w-6xl">
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+            className="inline-flex items-center gap-2 rounded-md px-1 py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
           >
             <ArrowLeft className="size-4 rtl-flip" /> {t("projects.back")}
           </Link>
@@ -104,7 +104,8 @@ function ProjectDetail() {
                 href={p.live}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-primary-foreground hover:opacity-90"
+                aria-label={`${p.title} — ${t("projects.live")}`}
+                className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-medium text-primary-foreground transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
               >
                 {t("projects.live")} <ExternalLink className="size-4" />
               </a>
@@ -114,7 +115,8 @@ function ProjectDetail() {
                   href={r.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full glass-subtle px-4 py-2.5 text-sm hover:bg-[var(--glass-3)]"
+                  aria-label={`${p.title} — ${r.label} (GitHub)`}
+                  className="inline-flex items-center gap-2 rounded-full glass-subtle px-4 py-2.5 text-sm transition hover:bg-[var(--glass-3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background motion-reduce:transition-none"
                 >
                   <Github className="size-4" /> {r.label}
                 </a>
@@ -273,14 +275,16 @@ function ProjectDetail() {
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {p.gallery.map((g, i) => (
               <SectionReveal key={g.src} delay={i * 0.05}>
-                <GlassCard className="overflow-hidden">
-                  <img
-                    src={g.src}
-                    alt={g.caption}
-                    loading="lazy"
-                    decoding="async"
-                    className="h-auto w-full"
-                  />
+                <GlassCard className="group overflow-hidden transition-colors duration-300 hover:bg-[var(--glass-3)] motion-reduce:transition-none">
+                  <div className="overflow-hidden">
+                    <img
+                      src={g.src}
+                      alt={g.caption}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    />
+                  </div>
                   <div className="p-4 text-xs text-muted-foreground">{g.caption}</div>
                 </GlassCard>
               </SectionReveal>
